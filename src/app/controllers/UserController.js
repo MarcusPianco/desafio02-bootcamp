@@ -10,16 +10,30 @@ class UserController {
     }
 
     const profileExist = await Profile.findOne({
-      where: { id: req.body.profileID },
+      where: { id: req.body.profile_id },
     });
 
     if (!profileExist) {
       return res.status(400).json({ error: 'Profile does not exist' });
     }
 
-    const { id, name, profileID, email } = await User.create(req.body);
+    // eslint-disable-next-line camelcase
+    const { id, name, profile_id, email } = await User.create(req.body);
 
-    return res.json({ id, name, profileID, email });
+    return res.json({ id, name, profile_id, email });
+  }
+
+  async update(req, res) {
+    const userExist = await User.findByPk(req.params.id);
+
+    if (!userExist) {
+      return res.status(400).json({ error: 'User does not exist' });
+    }
+
+    // eslint-disable-next-line camelcase
+    const { id, email, profile_id } = await userExist.update(req.body);
+
+    return res.json({ id, email, profile_id });
   }
 }
 export default new UserController();
