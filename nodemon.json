@@ -1,3 +1,5 @@
 {
-  "js": "sucrase-node"
+  "execMap": {
+    "js": "sucrase-node"
+  }
 }
