@@ -24,16 +24,16 @@ class UserController {
   }
 
   async update(req, res) {
-    const userExist = await User.findByPk(req.params.id);
+    const userExist = await User.findByPk(req.userID);
 
     if (!userExist) {
       return res.status(400).json({ error: 'User does not exist' });
     }
 
     // eslint-disable-next-line camelcase
-    const { id, email, profile_id } = await userExist.update(req.body);
+    const { id, email, profile_id, name } = await userExist.update(req.body);
 
-    return res.json({ id, email, profile_id });
+    return res.json({ id, email, profile_id, name });
   }
 }
 export default new UserController();
