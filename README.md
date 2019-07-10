@@ -1,4 +1,4 @@
-# Desafio 02. Iniciando aplicação
+# MeetApp
 
 Crie uma aplicação do zero utilizando Express.
 
