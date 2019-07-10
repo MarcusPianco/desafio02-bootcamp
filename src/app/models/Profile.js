@@ -8,6 +8,7 @@ class Profile extends Model {
       },
       { sequelize }
     );
+    return this;
   }
 
   async checkProfile(profile) {
