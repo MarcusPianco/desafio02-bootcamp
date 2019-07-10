@@ -1,6 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcryptjs';
-import Profile from './Profile';
 
 class User extends Model {
   static init(sequelize) {
@@ -10,13 +9,6 @@ class User extends Model {
         email: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
-        profile_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: Profile,
-            key: 'id',
-          },
-        },
       },
       { sequelize }
     );
@@ -26,6 +18,10 @@ class User extends Model {
       }
     });
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Profile, { foreignKey: 'profile_id', as: 'profile' });
   }
 
   checkPassword(password) {

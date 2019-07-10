@@ -10,9 +10,6 @@ class UserController {
       password: Yup.string()
         .required()
         .min(6),
-      profile: Yup.string()
-        .required()
-        .max(2),
     });
 
     if (!(await scheme.isValid(req.body))) {
