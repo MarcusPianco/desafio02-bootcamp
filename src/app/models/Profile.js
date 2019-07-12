@@ -10,10 +10,6 @@ class Profile extends Model {
     );
     return this;
   }
-
-  async checkProfile(profile) {
-    return !!(await Profile.findOne({ where: { id: profile } }));
-  }
 }
 
 export default Profile;
