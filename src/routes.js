@@ -25,6 +25,6 @@ routes.delete('/meetapps/cancel/:id', MeetappController.delete);
 
 routes.put('/users', UserController.update);
 
-routes.put('/meetapps/:id/subscription', SubscriptionController.store);
+routes.post('/meetapps/:id/subscription', SubscriptionController.store);
 
 export default routes;
