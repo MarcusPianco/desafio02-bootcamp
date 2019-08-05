@@ -19,8 +19,6 @@ class Meetapp extends Model {
     this.belongsTo(models.File, { foreignKey: 'banner_id', as: 'banner' });
     this.belongsToMany(models.User, {
       through: 'user_meetapp',
-      foreignKey: 'user_id',
-      as: 'users',
     });
   }
 }
