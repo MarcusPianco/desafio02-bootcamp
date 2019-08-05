@@ -11,13 +11,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
         onDelete: 'CASCADE',
-        allowNull: true,
+        allowNull: false,
       },
       meetapp_id: {
         type: Sequelize.INTEGER,
         references: { model: 'meetapps', key: 'id' },
         onDelete: 'CASCADE',
-        allowNull: true,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,

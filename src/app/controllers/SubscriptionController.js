@@ -25,9 +25,10 @@ class SubscriptionController {
 
     const user = await User.findOne({ where: { id: req.userID } });
 
-    await meetapp.setUsers(user);
-
-    return res.json(meetapp);
+    await meetapp.addUsers(user);
+    // optional return
+    // users or meetapps
+    return res.json(await user.getMeetapps());
   }
 }
 export default new SubscriptionController();
