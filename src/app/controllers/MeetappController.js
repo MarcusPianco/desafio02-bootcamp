@@ -17,7 +17,7 @@ class MeetappController {
       description: Yup.string().required(),
       date: Yup.date().required(),
       location: Yup.string().required(),
-      banner_id: Yup.number().required(),
+      banner_id: Yup.number(),
     });
 
     if (!(await scheme.isValid(req.body))) {
